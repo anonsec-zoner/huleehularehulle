@@ -10,22 +10,22 @@ class Config(object):
     LOGGER = True
 
     # REQUIRED
-    API_KEY = "700762897:AAFQxNdc5CnO8JTQGYMUOsdCaMVUFXsxf1w"
-    OWNER_ID = "721198993"  # If you dont know, run the bot and do /id in your private chat with it
-    OWNER_USERNAME = "Prakaska"
+    API_KEY = "750842214:AAFf3Y8p-VZH21CD7H1RfFCe5z_ISOgXWLU"
+    OWNER_ID = "656268508"  # If you dont know, run the bot and do /id in your private chat with it
+    OWNER_USERNAME = "shivamkchoudhary"
 
     # RECOMMENDED
-    SQLALCHEMY_DATABASE_URI = 'postgres://tdexkzqhkojmia:d7b7a56d7c3c18bf7f6428304958b88a8342b1757773965fdb6af62072ef13df@ec2-54-247-70-127.eu-west-1.compute.amazonaws.com:5432/d3ttt3hr63j4b2'  # needed for any database modules
+    SQLALCHEMY_DATABASE_URI = 'postgres://qroenkltmcayaa:ec5a1f35cea2730cc1c71be5f844baa13ca4010636e6ecbc6b545d818b365c70@ec2-23-21-234-53.compute-1.amazonaws.com:5432/dbqft2v7jbq49o'  # needed for any database modules
     MESSAGE_DUMP = -1001326118005  # needed to make sure 'save from' messages persist
     LOAD = []
     NO_LOAD = ['translation', 'sed']
     WEBHOOK = ANYTHING
-    URL = "https://thugboy.herokuapp.com/"
+    URL = "https://thanosbots1.herokuapp.com/"
 
     # OPTIONAL
-    SUDO_USERS = [578256572 734772540 759400881 594483221 623317613 649156353 656268508 334575345 225296581 621013608]  # List of id's (not usernames) for users which have sudo access to the bot.
-    SUPPORT_USERS = [578256572 734772540 759400881 594483221 623317613 649156353 656268508 334575345 225296581 621013608]  # List of id's (not usernames) for users which are allowed to gban, but can also be banned.
-    WHITELIST_USERS = [578256572 734772540 759400881 594483221 623317613 649156353 656268508 334575345 225296581 621013608]  # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
+    SUDO_USERS = [810714359 649156353 686956429 768326378 759400881]  # List of id's (not usernames) for users which have sudo access to the bot.
+    SUPPORT_USERS = [686956429]  # List of id's (not usernames) for users which are allowed to gban, but can also be banned.
+    WHITELIST_USERS = [810714359 649156353 686956429 768326378 759400881]  # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
     MAPS_API = ''
     CERT_PATH = None
     PORT = 5000
