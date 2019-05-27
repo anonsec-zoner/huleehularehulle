@@ -134,18 +134,15 @@ def send_start(bot, update):
         pass
 
     #chat = update.effective_chat  # type: Optional[Chat] and unused variable
-    text = "Hey there! My name is ThugBot - I'm here to help you manage your groups!\n\
-Click Help button to find out more about how to use me to my full potential.\n\n"
+    text = "Hey there! I am Thanos 😎!\n\
+    I know what it’s like to lose. To feel so desperately that you’re right, yet to fail nonetheless. Dread it. Run from it.\n\
+    Destiny still arrives. Or should I say, I have.\n\
+I am here to help you manage your groups ! Click Help button to find out more about how to use me to my full potential.\n\n"
 
-    text += "Join [Crabinz Group](https://t.me/Crabinz) ( @CraBinz ) if you Want Free Accounts Like, Netflix, Spotify etc.\n\n\
-    For lit and Cool Giveaways DM [CraBinzGiveawaybot](https://t.me/CraBinzGiveawaybot)\n\n\
-Also Join [PrimeFlix Group](https://t.me/primeflixgroup) ( @Primeflixgroup ) if you Want Free Accounts Like, Netflix, Spotify etc.\n\n\
-Join [PrimeFlix Channel](https://t.me/primeflix) ( @Primeflix ) for amazing Stuff.\n\n\
-Special Thanks to @peaktogoo & His Bot @HarukaAyaBot 🙂\n\n\
-My Souce Available Here [Source](https://github.com/Prakasaka/HarukaAya)\n\n\
-Want to add me to your group? [Click here!](t.me/TheThuggBot?startgroup=true)"
-
-    keyboard = [[InlineKeyboardButton(text="Crabinz Group", url="https://t.me/CraBinz")]]
+Special Thanks to @Prakaska sar 🙂\n\n\
+My Souce Available Here [Source](https://github.com/shivamkchoudhary/HarukaAya)\n\n\
+Want to add me to your group? [Click here!](t.me/ThaNos_TheBot?startgroup=true)"
+    
     keyboard += [[InlineKeyboardButton(text="🛠 Control panel", callback_data="cntrl_panel_M")]]
     keyboard += [[InlineKeyboardButton(text="🇺🇸 Language", callback_data="set_lang_"), 
         InlineKeyboardButton(text="❔ Help", callback_data="help_back")]]
@@ -180,7 +177,7 @@ def control_panel(bot, update):
 
         LOGGER.info(query.data)
     else:
-        M_match = "ThugBot is best bot" #LMAO, don't uncomment
+        M_match = "ThaNos is best bot" #LMAO, don't uncomment
 
     if M_match:
         text = "*Control panel* 🛠"
