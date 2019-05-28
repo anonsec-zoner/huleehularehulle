@@ -69,9 +69,9 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
                                               mention_html(member.user.id, member.user.first_name))
 
         else:
-            message.reply_text(tld(chat.id, "This user is already muted in {}!").format(chatD.title))
+            message.reply_text(tld(chat.id, "This person is already muted in {}!").format(chatD.title))
     else:
-        message.reply_text(tld(chat.id, "This user isn't in the {}!").format(chatD.title))
+        message.reply_text(tld(chat.id, "This person isn't in the {}!").format(chatD.title))
 
     return ""
 
@@ -105,7 +105,7 @@ def unmute(bot: Bot, update: Update, args: List[str]) -> str:
     if member.status != 'kicked' and member.status != 'left':
         if member.can_send_messages and member.can_send_media_messages \
                 and member.can_send_other_messages and member.can_add_web_page_previews:
-            message.reply_text(tld(chat.id, "This user already has the right to speak in {}.").format(chatD.title))
+            message.reply_text(tld(chat.id, "This person already has the right to speak in {}.").format(chatD.title))
         else:
             bot.restrict_chat_member(chatD.id, int(user_id),
                                      can_send_messages=True,
@@ -123,7 +123,7 @@ def unmute(bot: Bot, update: Update, args: List[str]) -> str:
                                                            mention_html(user.id, user.first_name),
                                                            mention_html(member.user.id, member.user.first_name), user_id)
     else:
-        message.reply_text(tld(chat.id, "This user isn't even in the chat, unmuting them won't make them talk more than they "
+        message.reply_text(tld(chat.id, "This person isn't even in the chat, unmuting them won't make them talk more than they "
                            "already do!"))
 
     return ""
@@ -151,14 +151,14 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text(tld(chat.id, "You don't seem to be referring to a user."))
+        message.reply_text(tld(chat.id, "You don't seem to be referring to a person."))
         return ""
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text(tld(chat.id, "I can't seem to find this user"))
+            message.reply_text(tld(chat.id, "I can't seem to find this person"))
             return ""
         else:
             raise
@@ -203,7 +203,7 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
             message.reply_text(tld(chat.id, "Muted for {} in {}!").format(time_val, chatD.title))
             return log
         else:
-            message.reply_text(tld(chat.id, "This user is already muted in {}!").format(chatD.title))
+            message.reply_text(tld(chat.id, "This person is already muted in {}!").format(chatD.title))
 
     except BadRequest as excp:
         if excp.message == "Reply message not found":
@@ -214,7 +214,7 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
             LOGGER.warning(update)
             LOGGER.exception("ERROR muting user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
                              excp.message)
-            message.reply_text(tld(chat.id, "Well damn, I can't mute that user."))
+            message.reply_text(tld(chat.id, "Well damn, I can't mute that person."))
 
     return ""
 
@@ -269,9 +269,9 @@ def nomedia(bot: Bot, update: Update, args: List[str]) -> str:
                                               mention_html(member.user.id, member.user.first_name), user_id)
 
         else:
-            message.reply_text(tld(chat.id, "This user is already restricted in {}!"))
+            message.reply_text(tld(chat.id, "This person is already restricted in {}!"))
     else:
-        message.reply_text(tld(chat.id, "This user isn't in the {}!").format(chatD.title))
+        message.reply_text(tld(chat.id, "This person isn't in the {}!").format(chatD.title))
 
     return ""
 
@@ -322,7 +322,7 @@ def media(bot: Bot, update: Update, args: List[str]) -> str:
                                                            mention_html(user.id, user.first_name),
                                                            mention_html(member.user.id, member.user.first_name), user_id)
     else:
-        message.reply_text(tld(chat.id, "This user isn't even in the chat, unrestricting them won't make them send anything than they "
+        message.reply_text(tld(chat.id, "This person isn't even in the chat, unrestricting them won't make them send anything than they "
                            "already do!"))
 
     return ""
@@ -350,14 +350,14 @@ def temp_nomedia(bot: Bot, update: Update, args: List[str]) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text(tld(chat.id, "You don't seem to be referring to a user."))
+        message.reply_text(tld(chat.id, "You don't seem to be referring to a person."))
         return ""
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text(tld(chat.id, "I can't seem to find this user"))
+            message.reply_text(tld(chat.id, "I can't seem to find this person"))
             return ""
         else:
             raise
@@ -371,7 +371,7 @@ def temp_nomedia(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if not reason:
-        message.reply_text(tld(chat.id, "You haven't specified a time to restrict this user for!"))
+        message.reply_text(tld(chat.id, "You haven't specified a time to restrict this person for!"))
         return ""
 
     split_reason = reason.split(None, 1)
@@ -406,7 +406,7 @@ def temp_nomedia(bot: Bot, update: Update, args: List[str]) -> str:
             message.reply_text(tld(chat.id, "Restricted from sending media for {} in {}!").format(time_val, chatD.title))
             return log
         else:
-            message.reply_text(tld(chat.id, "This user is already restricted in {}.").format(chatD.title))
+            message.reply_text(tld(chat.id, "This person is already restricted in {}.").format(chatD.title))
 
     except BadRequest as excp:
         if excp.message == "Reply message not found":
@@ -417,7 +417,7 @@ def temp_nomedia(bot: Bot, update: Update, args: List[str]) -> str:
             LOGGER.warning(update)
             LOGGER.exception("ERROR muting user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
                              excp.message)
-            message.reply_text(tld(chat.id, "Well damn, I can't restrict that user."))
+            message.reply_text(tld(chat.id, "Well damn, I can't restrict that person."))
 
     return ""
 
