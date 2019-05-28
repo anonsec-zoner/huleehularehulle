@@ -139,7 +139,7 @@ def send_start(bot, update):
     Destiny still arrives. Or should I say, I have.\n\
 I am here to help you manage your groups ! Click Help button to find out more about how to use me to my full potential.\n\n"
 
-  text +=  "Special Thanks to @Prakaska sar 🙂\n\n\
+  text += "Special Thanks to @Prakaska sar 🙂\n\n\
     My Souce Available Here [Source](https://github.com/shivamkchoudhary/HarukaAya)\n\n\
     Want to add me to your group? [Click here!](t.me/ThaNos_TheBot?startgroup=true)"
     
