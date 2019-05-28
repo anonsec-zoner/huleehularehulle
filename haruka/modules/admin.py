@@ -41,7 +41,7 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text(tld(chat.id, "You don't seem to be referring to a user."))
+        message.reply_text(tld(chat.id, "You don't seem to be referring to a person."))
         return ""
 
     user_member = chatD.get_member(user_id)
@@ -96,7 +96,7 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text(tld(chat.id, "You don't seem to be referring to a user."))
+        message.reply_text(tld(chat.id, "You don't seem to be referring to a person."))
         return ""
 
     user_member = chatD.get_member(user_id)
