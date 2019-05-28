@@ -13,6 +13,8 @@ ABUSE_STRINGS = (
     "Ur mum gey",
     "Ur dad lesbo",
     "Bsdk",
+    "Gendu",
+     "mml",
     "Nigga",
     "Ur granny tranny",
     "you noob",
@@ -233,7 +235,7 @@ def rlg(bot: Bot, update: Update):
 def decide(bot: Bot, update: Update):
         r = randint(1, 100)
         if r <= 65:
-            update.message.reply_text("Yes.")
+            update.message.reply_text("Yus.")
         elif r <= 90:
             update.message.reply_text("NoU.")
         else:
@@ -244,7 +246,7 @@ def table(bot: Bot, update: Update):
             if r <= 45:
                 update.message.reply_text("(╯°□°）╯彡 ┻━┻")
             elif r <= 90:
-                update.message.reply_text("Send money bsdk to buy new table to flip")
+                update.message.reply_text("Send money bsdk to buy new table to flip 😏")
             else:
                 update.message.reply_text("Go do some work instead of flippin tables you helpless fagit.")
 		
