@@ -274,7 +274,7 @@ def user_demote_fed(bot: Bot, update: Update, args: List[str]):
         elif not msg.reply_to_message and (not args or (
                 len(args) >= 1 and not args[0].startswith("@") and not args[0].isdigit() and not msg.parse_entities(
                 [MessageEntity.TEXT_MENTION]))):
-                msg.reply_text(tld(chat.id, "I can't extract a user from this."))
+                msg.reply_text(tld(chat.id, "I can't extract a person from this."))
                 return
 
         #else:
@@ -285,7 +285,7 @@ def user_demote_fed(bot: Bot, update: Update, args: List[str]):
                 return
 
         if sql.search_user_in_fed(fed_id, user_id) == False:
-                update.effective_message.reply_text(tld(chat.id, "I can't demote user which is not a fed admin! If you wanna bring him to tears, promote him first!"))
+                update.effective_message.reply_text(tld(chat.id, "I can't demote person which is not a fed admin! If you wanna bring him to tears, promote him first!"))
                 return
 
         res = sql.user_demote_fed(fed_id, user_id)
@@ -394,11 +394,11 @@ def fed_ban(bot: Bot, update: Update, args: List[str]):
 
     fban = sql.get_fban_user(fed_id, user_id)
     if not fban == False:
-        update.effective_message.reply_text(tld(chat.id, "*Cough* This user is already fbanned!"))
+        update.effective_message.reply_text(tld(chat.id, "*Cough* This person is already fbanned!"))
         return
 
     if not user_id:
-        message.reply_text(tld(chat.id, "You don't seem to be referring to a user."))
+        message.reply_text(tld(chat.id, "You don't seem to be referring to a person."))
         return
 
     if user_id == bot.id:
@@ -497,16 +497,16 @@ def unfban(bot: Bot, update: Update, args: List[str]):
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text(tld(chat.id, "You don't seem to be referring to a user."))
+        message.reply_text(tld(chat.id, "You don't seem to be referring to a person."))
         return
 
     user_chat = bot.get_chat(user_id)
     if user_chat.type != 'private':
-        message.reply_text(tld(chat.id, "That's not a user!"))
+        message.reply_text(tld(chat.id, "That's not a person!"))
         return
 
     if sql.get_fban_user(fed_id, user_id) == False:
-        message.reply_text(tld(chat.id, "This user is not fbanned!"))
+        message.reply_text(tld(chat.id, "This person is not fbanned!"))
         return
 
     banner = update.effective_user  # type: Optional[User]
@@ -536,7 +536,7 @@ def unfban(bot: Bot, update: Update, args: List[str]):
         try:
             x = sql.un_fban_user(fed_id, user_id)
             if not x:
-                message.reply_text(tld(chat.id, "Failed to fban, This user is probably fbanned!"))
+                message.reply_text(tld(chat.id, "Failed to fban, This person is probably fbanned!"))
                 return
         except:
             pass
@@ -656,7 +656,7 @@ def welcome_fed(bot, update):
     fed_id = sql.get_fed_id(chat.id)
     fban = fban = sql.get_fban_user(fed_id, user.id)
     if not fban == False:
-        update.effective_message.reply_text(tld(chat.id, "This user is banned in current federation! I will remove him."))
+        update.effective_message.reply_text(tld(chat.id, "This person is banned in current federation! I will remove him."))
         bot.kick_chat_member(chat.id, user.id)
         return True
     else:
