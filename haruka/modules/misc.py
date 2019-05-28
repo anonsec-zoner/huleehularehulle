@@ -144,7 +144,7 @@ def info(bot: Bot, update: Update, args: List[str]):
     else:
         return
 
-    text =  tld(chat.id, "<b>User info</b>:")
+    text =  tld(chat.id, "<b>Destiny </b>:")
     text += "\nID: <code>{}</code>".format(user.id)
     text += tld(chat.id, "\nFirst Name: {}").format(html.escape(user.first_name))
 
@@ -157,7 +157,7 @@ def info(bot: Bot, update: Update, args: List[str]):
     text += tld(chat.id, "\nUser link: {}\n").format(mention_html(user.id, "link"))
 
     if user.id == OWNER_ID:
-        text += tld(chat.id, "\n\nAy, This guy is my owner. I would never do anything against him!")
+        text += tld(chat.id, "\n\nMy master - I would never do anything against him!")
     else:
         if user.id in SUDO_USERS:
             text += tld(chat.id, "\nThis person is one of my sudo users! " \
@@ -294,7 +294,7 @@ def github(bot: Bot, update: Update):
                         text += ("\n*{}:* `{}`".format(x, y))
         reply_text = text
     else:
-        reply_text = "User not found. Make sure you entered valid username!"
+        reply_text = "Person not found. Make sure you entered valid username!"
     message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
 
