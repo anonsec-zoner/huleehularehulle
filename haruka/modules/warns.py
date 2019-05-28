@@ -103,7 +103,7 @@ def button(bot: Bot, update: Update) -> str:
         user_id = match.group(1)
         chat = update.effective_chat  # type: Optional[Chat]
         if not is_user_admin(chat, int(user.id)):
-            query.answer(text="You are not authorized to remove this warn! Only administrators may remove warns.", show_alert=True)
+            query.answer(text="Who the fuck are you? You are not authorized to remove this warn! Only administrators may remove warns.", show_alert=True)
             return ""
         res = sql.remove_warn(user_id, chat.id)
         if res:
@@ -120,7 +120,7 @@ def button(bot: Bot, update: Update) -> str:
                                                                 user_member.user.id)
         else:
             update.effective_message.edit_text(
-                "User has already has no warns.".format(mention_html(user.id, user.first_name)),
+                "Person has already has no warns.".format(mention_html(user.id, user.first_name)),
                 parse_mode=ParseMode.HTML)
 
     return ""
@@ -143,7 +143,7 @@ def warn_user(bot: Bot, update: Update, args: List[str]) -> str:
         else:
             return warn(chat.get_member(user_id).user, chat, reason, message, warner)
     else:
-        message.reply_text("No user was designated!")
+        message.reply_text("No person was designated!")
     return ""
 
 
@@ -197,7 +197,7 @@ def warns(bot: Bot, update: Update, args: List[str]):
             update.effective_message.reply_text(
                 "User has {}/{} warnings, but no reasons for any of them.".format(num_warns, limit))
     else:
-        update.effective_message.reply_text("This user hasn't got any warnings!")
+        update.effective_message.reply_text("This person hasn't got any warnings!")
 
 
 # Dispatcher handler stop - do not async
@@ -365,10 +365,10 @@ def set_warn_strength(bot: Bot, update: Update, args: List[str]):
     else:
         limit, soft_warn = sql.get_warn_setting(chat.id)
         if soft_warn:
-            msg.reply_text("Warns are currently set to *kick* users when they exceed the limits.",
+            msg.reply_text("Warns are currently set to *kick* persons when they exceed the limits.",
                            parse_mode=ParseMode.MARKDOWN)
         else:
-            msg.reply_text("Warns are currently set to *ban* users when they exceed the limits.",
+            msg.reply_text("Warns are currently set to *ban* persons when they exceed the limits.",
                            parse_mode=ParseMode.MARKDOWN)
     return ""
 
@@ -393,7 +393,7 @@ def __chat_settings__(chat_id, user_id):
     num_warn_filters = sql.num_warn_chat_filters(chat_id)
     limit, soft_warn = sql.get_warn_setting(chat_id)
     return "This chat has `{}` warn filters. It takes `{}` warns " \
-           "before the user gets *{}*.".format(num_warn_filters, limit, "kicked" if soft_warn else "banned")
+           "before the person gets *{}*.".format(num_warn_filters, limit, "kicked" if soft_warn else "banned")
 
 
 __help__ = """
