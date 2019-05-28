@@ -122,7 +122,7 @@ def start(bot: Bot, update: Update, args: List[str]):
         else:
             send_start(bot, update)
     else:
-        update.effective_message.reply_text("I iz alive saaaaar")
+        update.effective_message.reply_text("The end is near.🙂")
 
 
 def send_start(bot, update):
@@ -139,9 +139,9 @@ def send_start(bot, update):
     Destiny still arrives. Or should I say, I have.\n\
 I am here to help you manage your groups ! Click Help button to find out more about how to use me to my full potential.\n\n"
 
-Special Thanks to @Prakaska sar 🙂\n\n\
-My Souce Available Here [Source](https://github.com/shivamkchoudhary/HarukaAya)\n\n\
-Want to add me to your group? [Click here!](t.me/ThaNos_TheBot?startgroup=true)"
+    Special Thanks to @Prakaska sar 🙂\n\n\
+    My Souce Available Here [Source](https://github.com/shivamkchoudhary/HarukaAya)\n\n\
+    Want to add me to your group? [Click here!](t.me/ThaNos_TheBot?startgroup=true)"
     
     keyboard += [[InlineKeyboardButton(text="🛠 Control panel", callback_data="cntrl_panel_M")]]
     keyboard += [[InlineKeyboardButton(text="🇺🇸 Language", callback_data="set_lang_"), 
