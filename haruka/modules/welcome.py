@@ -101,7 +101,7 @@ def new_member(bot: Bot, update: Update):
                     "I have been added to {} with ID: <pre>{}</pre>".format(chat.title, chat.id),
                     parse_mode=ParseMode.HTML
                 )
-                bot.send_message(chat.id, "Thanks for adding me into your group! Checkout our Group! @Crabinz")
+                bot.send_message(chat.id, "Thanks for adding me into your group!")
 
             else:
                 # If welcome message is media, send with appropriate function
@@ -194,7 +194,7 @@ def check_bot_button(bot: Bot, update: Update):
         bot.deleteMessage(chat.id, message.message_id)
     else:
         print("NO")
-        query.answer(text="You're not a new user!")
+        query.answer(text="You're not a new person!")
     #TODO need kick users after 2 hours and remove message 
 
 @run_async
