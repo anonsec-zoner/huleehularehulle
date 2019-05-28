@@ -19,7 +19,7 @@ from haruka.modules.disable import DisableAbleCommandHandler
 USERS_GROUP = 4
 
 MESSAGES = (
-    "Happy birthday ",
+    "Happy birthday son 😊 ",
     "Heppi burfdey ",
     "Hep burf ",
     "Happy day of birthing ",
