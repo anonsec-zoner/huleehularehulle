@@ -31,24 +31,24 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text(tld(chat.id, "You don't seem to be referring to a user."))
+        message.reply_text(tld(chat.id, "You don't seem to be referring to a person."))
         return ""
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
-        if excp.message == "User not found":
-            message.reply_text(tld(chat.id, "I can't seem to find this user"))
+        if excp.message == "Person not found":
+            message.reply_text(tld(chat.id, "I can't seem to find this person"))
             return ""
         else:
             raise
 
     if user_id == bot.id:
-        message.reply_text(tld(chat.id, "I'm not gonna BAN myself, are you crazy?"))
+        message.reply_text(tld(chat.id, "You’re strong. But I could snap my fingers, and you’d all cease to exist. 😒"))
         return ""
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text(tld(chat.id, "Why would I ban an admin? That sounds like a pretty dumb idea."))
+        message.reply_text(tld(chat.id, "Why would I ban an Admin? That sounds like a pretty dumb idea."))
         return ""
 
     log = "<b>{}:</b>" \
@@ -74,7 +74,7 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
             return log
         else:
             LOGGER.warning(update)
-            LOGGER.exception("ERROR banning user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
+            LOGGER.exception("ERROR banning person %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
                              excp.message)
             message.reply_text(tld(chat.id, "Banned!"))
 
@@ -94,20 +94,20 @@ def temp_ban(bot: Bot, update: Update, args: List[str]) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text(tld(chat.id, "You don't seem to be referring to a user."))
+        message.reply_text(tld(chat.id, "You don't seem to be referring to a person."))
         return ""
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text(tld(chat.id, "I can't seem to find this user"))
+            message.reply_text(tld(chat.id, "I can't seem to find this person"))
             return ""
         else:
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text(tld(chat.id, "This user is ban protected, meaning that you cannot ban this user!"))
+        message.reply_text(tld(chat.id, "This person is ban protected, meaning that you cannot ban this person!"))
         return ""
 
     if user_id == bot.id:
@@ -115,7 +115,7 @@ def temp_ban(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if not reason:
-        message.reply_text(tld(chat.id, "You haven't specified a time to ban this user for!"))
+        message.reply_text(tld(chat.id, "You haven't specified a time to ban this person for!"))
         return ""
 
     split_reason = reason.split(None, 1)
@@ -156,11 +156,11 @@ def temp_ban(bot: Bot, update: Update, args: List[str]) -> str:
         if excp.message == "Reply message not found":
             # Do not reply
             bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
-            message.reply_text(tld(chat.id, "Banned! User will be banned for {}.").format(time_val), quote=False)
+            message.reply_text(tld(chat.id, "Banned! Person will be banned for {}.").format(time_val), quote=False)
             return log
         else:
             LOGGER.warning(update)
-            LOGGER.exception("ERROR banning user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
+            LOGGER.exception("ERROR banning person %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
                              excp.message)
             message.reply_text(tld(chat.id, "Banned!"))
 
@@ -185,8 +185,8 @@ def kick(bot: Bot, update: Update, args: List[str]) -> str:
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
-        if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user")
+        if excp.message == "Person not found":
+            message.reply_text("I can't seem to find this person")
             return ""
         else:
             raise
@@ -196,7 +196,7 @@ def kick(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if is_user_ban_protected(chat, user_id):
-        message.reply_text("Why would I kick an admin? That sounds like a pretty dumb idea.")
+        message.reply_text("Why would I kick an Admin? That sounds like a pretty dumb idea.")
         return ""
 
     res = chat.unban_member(user_id)  # unban on current user = kick
@@ -229,10 +229,10 @@ def kick(bot: Bot, update: Update, args: List[str]) -> str:
 def kickme(bot: Bot, update: Update):
     user_id = update.effective_message.from_user.id
     if user_id == OWNER_ID:
-        update.effective_message.reply_text("Oof, I can't kick my master.")
+        update.effective_message.reply_text("You’re strong. But I could snap my fingers, and you’d all cease to exist. 😠")
         return
     elif is_user_admin(update.effective_chat, user_id):
-        update.effective_message.reply_text("Why would I kick an admin? That sounds like a pretty dumb idea.")
+        update.effective_message.reply_text("Why would I kick an Admin? That sounds like a pretty dumb idea.")
         return
 
     res = update.effective_chat.unban_member(user_id)  # unban on current user = kick
@@ -251,15 +251,15 @@ def banme(bot: Bot, update: Update):
     chat = update.effective_chat
     user = update.effective_user
     if user_id == OWNER_ID:
-        update.effective_message.reply_text("Oof, I can't ban my master.")
+        update.effective_message.reply_text("Oof, I can't ban my master. 😶")
         return
     elif is_user_admin(update.effective_chat, user_id):
-        update.effective_message.reply_text("Why would I ban an admin? That sounds like a pretty dumb idea.")
+        update.effective_message.reply_text("Why would I ban an Admin? That sounds like a pretty dumb idea.")
         return
 
     res = update.effective_chat.kick_member(user_id)  
     if res:
-        update.effective_message.reply_text("No problem, banned.")
+        update.effective_message.reply_text("Insect get lost. 😏")
         log = "<b>{}:</b>" \
               "\n#BANME" \
               "\n<b>User:</b> {}" \
@@ -289,8 +289,8 @@ def unban(bot: Bot, update: Update, args: List[str]) -> str:
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
-        if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user")
+        if excp.message == "Person not found":
+            message.reply_text("I can't seem to find this person")
             return ""
         else:
             raise
@@ -304,7 +304,7 @@ def unban(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     chat.unban_member(user_id)
-    message.reply_text("Yep, this user can join!")
+    message.reply_text("Destiny gave you second chance. Don't waste it. 🙂")
 
     log = "<b>{}:</b>" \
           "\n#UNBANNED" \
@@ -339,7 +339,7 @@ def sban(bot: Bot, update: Update, args: List[str]) -> str:
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
-        if excp.message == "User not found":
+        if excp.message == "Person not found":
             return ""
         else:
             raise
@@ -368,7 +368,7 @@ def sban(bot: Bot, update: Update, args: List[str]) -> str:
             return log
         else:
             LOGGER.warning(update)
-            LOGGER.exception("ERROR banning user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id, excp.message)       
+            LOGGER.exception("ERROR banning person %s in chat %s (%s) due to %s", user_id, chat.title, chat.id, excp.message)       
     return ""
 
 
