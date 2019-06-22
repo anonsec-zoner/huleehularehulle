@@ -52,7 +52,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("You don't seem to be referring to a person.")
         return
 
     if int(user_id) in SUDO_USERS:
@@ -64,7 +64,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
         return
 
     if user_id == bot.id:
-        message.reply_text("-_- So funny, lets gban myself why don't I? Nice try.")
+        message.reply_text("-_- So funny, lets gban myself why don't I? Nice try. Earth That is my price!")
         return
 
     try:
@@ -79,24 +79,24 @@ def gban(bot: Bot, update: Update, args: List[str]):
 
     if sql.is_user_gbanned(user_id):
         if not reason:
-            message.reply_text("This user is already gbanned; I'd change the reason, but you haven't given me one...")
+            message.reply_text("This person is already gbanned; I'd change the reason, but you haven't given me one...")
             return
 
         old_reason = sql.update_gban_reason(user_id, user_chat.username or user_chat.first_name, reason)
         if old_reason:
-            message.reply_text("This user is already gbanned, for the following reason:\n"
+            message.reply_text("This person is already gbanned, for the following reason:\n"
                                "<code>{}</code>\n"
                                "I've gone and updated it with your new reason!".format(html.escape(old_reason)),
                                parse_mode=ParseMode.HTML)
         else:
-            message.reply_text("This user is already gbanned, but had no reason set; I've gone and updated it!")
+            message.reply_text("This person is already gbanned, but had no reason set; I've gone and updated it!")
 
         return
     
     ok123 = mention_html(user_chat.id, user_chat.first_name)
 
 
-    text12 = f"Summoning the ban axe on Chu {ok123} 😉."
+    text12 = f"*Summoning all infinity stones* The end is near. ☠️ {ok123}."
     update.effective_message.reply_text(text12, parse_mode=ParseMode.HTML)
 
     banner = update.effective_user  # type: Optional[User]
@@ -138,7 +138,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
     send_to_list(bot, SUDO_USERS + SUPPORT_USERS,
                    "{} has been successfully gbanned!".format(mention_html(user_chat.id, user_chat.first_name)),
                    html=True)
-    text13 = f"Chu {ok123} has been Dealt with 😈."
+    text13 = f"Justice has been done with {ok123} 😉\"Peace\".
     update.effective_message.reply_text(text13, parse_mode=ParseMode.HTML)
 
 
@@ -148,21 +148,21 @@ def ungban(bot: Bot, update: Update, args: List[str]):
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("You don't seem to be referring to a person.")
         return
 
     user_chat = bot.get_chat(user_id)
     if user_chat.type != 'private':
-        message.reply_text("That's not a user!")
+        message.reply_text("That's not a person!")
         return
 
     if not sql.is_user_gbanned(user_id):
-        message.reply_text("This user is not gbanned!")
+        message.reply_text("This person is not gbanned!")
         return
 
     banner = update.effective_user  # type: Optional[User]
 
-    message.reply_text("I'll give {} a second chance, globally.".format(user_chat.first_name))
+    message.reply_text("I'll give {} a second chance, globally.I do not ask for your trust.I demand only your obedience.".format(user_chat.first_name))
 
     send_to_list(bot, SUDO_USERS + SUPPORT_USERS,
                  "<b>Regression of Global Ban</b>" \
@@ -205,7 +205,7 @@ def ungban(bot: Bot, update: Update, args: List[str]):
                                                                          user_chat.first_name)),
                  html=True)
 
-    message.reply_text("Person has been un-gbanned.")
+    message.reply_text("Person has been un-gbanned.The hardest choices require the strongest wills.😐")
 
 
 
@@ -233,7 +233,7 @@ def check_and_ban(update, user_id, should_message=True):
     if sql.is_user_gbanned(user_id):
         update.effective_chat.kick_member(user_id)
         if should_message:
-            update.effective_message.reply_text("This is a bad person, they shouldn't be here!")
+            update.effective_message.reply_text("Again, insects, you ask what am I? What I am is angry. What I am is insane with rage!")
 
 #GMUTE
 
@@ -244,7 +244,7 @@ def gmute(bot: Bot, update: Update, args: List[str]):
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("You don't seem to be referring to a person.")
         return
 
     if int(user_id) in SUDO_USERS:
@@ -496,7 +496,7 @@ def antispam(bot: Bot, update: Update, args: List[str]):
             sql.disable_antispam(chat.id)
             update.effective_message.reply_text(tld(chat.id, "I've disabled antispam security in this group. GBans wont affect your users "
                                                 "anymore. You'll be less protected from any trolls and spammers "
-                                                "though!"))
+                                                "though! And i am little disappointed too. 😶"))
     else:
         update.effective_message.reply_text(tld(chat.id, "Give me some arguments to choose a setting! on/off, yes/no!\n\n"
                                             "Your current setting is: {}\n"
@@ -538,7 +538,7 @@ def gkick(bot: Bot, update: Update, args: List[str]):
             pass
 
     if not user_id:
-        message.reply_text("You do not seems to be referring to a user")
+        message.reply_text("You do not seems to be referring to a person")
         return
     if int(user_id) in SUDO_USERS or int(user_id) in SUPPORT_USERS:
         message.reply_text("OHHH! Someone's trying to gkick a sudo/support user! *Grabs popcorn*")
@@ -548,7 +548,7 @@ def gkick(bot: Bot, update: Update, args: List[str]):
         return
         
     if user_id == bot.id:
-        message.reply_text("Welp, I'm not gonna gkick myself!")
+        message.reply_text("Well, I'm not gonna gkick myself!")
         return
 
     if int(user_id) in SUDO_USERS:
@@ -556,7 +556,7 @@ def gkick(bot: Bot, update: Update, args: List[str]):
         return
 
     chats = get_all_chats()
-    message.reply_text("Globally kicking user @{}".format(user_chat.username))
+    message.reply_text("Globally kicking person @{}".format(user_chat.username))
     for chat in chats:
         try:
             bot.unban_chat_member(chat.chat_id, user_id)  # Unban_member = kick (and not ban)
@@ -564,7 +564,7 @@ def gkick(bot: Bot, update: Update, args: List[str]):
             if excp.message in GKICK_ERRORS:
                 pass
             else:
-                message.reply_text("User cannot be Globally kicked because: {}".format(excp.message))
+                message.reply_text("Person cannot be Globally kicked because: {}".format(excp.message))
                 return
         except TelegramError:
             pass
