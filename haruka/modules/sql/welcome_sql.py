@@ -6,8 +6,8 @@ from sqlalchemy import Column, String, Boolean, UnicodeText, Integer, BigInteger
 from haruka.modules.helper_funcs.msg_types import Types
 from haruka.modules.sql import SESSION, BASE
 
-DEFAULT_WELCOME = "Hey {first}, how are you?"
-DEFAULT_GOODBYE = "Nice knowing ya!"
+DEFAULT_WELCOME = "{first}, Welcome son. How are you?"
+DEFAULT_GOODBYE = "Destiny kicked your sad ass 😏"
 
 
 class Welcome(BASE):
