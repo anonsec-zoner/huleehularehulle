@@ -20,12 +20,12 @@ class Config(object):
     LOAD = []
     NO_LOAD = ['translation', 'sed']
     WEBHOOK = ANYTHING
-    URL = "https://prakasaka.herokuapp.com/"
+    URL = "https://thanosbot2.herokuapp.com/"
 
     # OPTIONAL
-    SUDO_USERS = [578256572 734772540 759400881 594483221 623317613 649156353 656268508 334575345 225296581 621013608]  # List of id's (not usernames) for users which have sudo access to the bot.
-    SUPPORT_USERS = [578256572 734772540 759400881 594483221 623317613 649156353 656268508 334575345 225296581 621013608]  # List of id's (not usernames) for users which are allowed to gban, but can also be banned.
-    WHITELIST_USERS = [578256572 734772540 759400881 594483221 623317613 649156353 656268508 334575345 225296581 621013608]  # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
+    SUDO_USERS = [810714359 649156353 686956429 768326378 759400881  734772540 594813047 594483221 859040871]  # List of id's (not usernames) for users which have sudo access to the bot.
+    SUPPORT_USERS = [810714359 649156353 686956429 768326378 759400881  734772540 594813047 594483221 859040871]  # List of id's (not usernames) for users which are allowed to gban, but can also be banned.
+    WHITELIST_USERS = [810714359 649156353 686956429 768326378 759400881  734772540 594813047 594483221 859040871]  # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
     MAPS_API = ''
     CERT_PATH = None
     PORT = 5000
