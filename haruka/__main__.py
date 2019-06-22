@@ -122,7 +122,7 @@ def start(bot: Bot, update: Update, args: List[str]):
         else:
             send_start(bot, update)
     else:
-        update.effective_message.reply_text("RIP ThugBot 😭 Press F For Pay Respect")
+        update.effective_message.reply_text("The end is near. 👻")
 
 
 def send_start(bot, update):
@@ -183,7 +183,7 @@ def control_panel(bot, update):
 
         LOGGER.info(query.data)
     else:
-        M_match = "ThugBot is best bot 🔥" #LMAO, don't uncomment
+        M_match = "ThaNos is best bot 🔥" #LMAO, don't uncomment
 
     if M_match:
         text = "*Control panel* 🛠"
