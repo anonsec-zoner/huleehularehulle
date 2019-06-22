@@ -132,21 +132,27 @@ def send_start(bot, update):
         query.message.delete()
     except:
         pass
+    
+    chat = update.effective_chat  # type: Optional[Chat]
+    first_name = update.effective_user.first_name 
+    text = PM_START
 
     #chat = update.effective_chat  # type: Optional[Chat] and unused variable
-    text = "Hello {}, my name is {}!\n\n"
+    PM_START = """
+     "Hello {}, my name is {}!\n\n"
     "I know what it’s like to lose. To feel so desperately that you’re right, yet to fail nonetheless. Dread it. Run from it.\n"
     "Destiny still arrives. Or should I say, I have.\n\n"
     
-    text += "I'm world manager bot maintained by [this awesome person](tg://user?id={})."
+    "I'm world manager bot maintained by [this awesome person](tg://user?id={})."
     
-    text += "Click Help button to find out more about how to use me to my full potential.\n\n"
+    "Click Help button to find out more about how to use me to my full potential.\n\n"
+     "Special Thanks to @Prakaska sar ??\n\n\"
+    "My Souce Available Here [Source](https://github.com/shivamkchoudhary/HarukaAya)\n\n\"
     
-    text += "Special Thanks to @Prakaska sar ??\n\n\"
-    
-text += "My Souce Available Here [Source](https://github.com/shivamkchoudhary/HarukaAya)\n\n\"
-    
-text += "Want to add me to your group? [Click here!](t.me/ThaNos_TheBot?startgroup=true)"
+"Want to add me to your group? [Click here!](t.me/ThaNos_TheBot?startgroup=true)"
+Earth. That is my price.!
+"""
+
 
    
     keyboard = [[InlineKeyboardButton(text="🛠 Control panel", callback_data="cntrl_panel_M")]]
