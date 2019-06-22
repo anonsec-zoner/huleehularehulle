@@ -19,8 +19,9 @@ ABUSE_STRINGS = (
 	"Relax your Rear,ders nothing to fear,The Rape train is finally here",
 	"Stfu bc",
 	"Stfu and Gtfo U nub",
-	"GTFO bsdk"
+	"GTFO bsdk",
     "CUnt",
+     "Madharchod",
     " Gay is here",
     "Ur dad gey bc "
 )
@@ -219,7 +220,7 @@ def abuse(bot: Bot, update: Update):
 def bluetext(bot: Bot, update: Update):
     # reply to correct message
     reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
-    reply_text("BLUE TEXT\n MUST CLICK\n I AM A STUPID ANIMAL THAT IS ATTRACTED TO COLORS")		
+    reply_text("`BLUE TEXT\n MUST CLICK\n I AM A STUPID ANIMAL THAT IS ATTRACTED TO COLORS`")		
 
 @run_async
 def rlg(bot: Bot, update: Update):
