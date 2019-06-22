@@ -143,7 +143,8 @@ def send_start(bot, update):
     text += "Click Help button to find out more about how to use me to my full potential.\n\n"
     
     text += "Special Thanks to @Prakaska sar ??\n\n\"
-My Souce Available Here [Source](https://github.com/shivamkchoudhary/HarukaAya)\n\n\""
+    
+text += "My Souce Available Here [Source](https://github.com/shivamkchoudhary/HarukaAya)\n\n\"
     
 text += "Want to add me to your group? [Click here!](t.me/ThaNos_TheBot?startgroup=true)"
 
