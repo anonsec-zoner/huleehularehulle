@@ -134,12 +134,18 @@ def send_start(bot, update):
         pass
 
     #chat = update.effective_chat  # type: Optional[Chat] and unused variable
-    text = "Hey There! My name is ThugBot - I'm here to help you manage your groups!\n\
-Click Help button to find out more about how to use me to my full potential.\n\n"
-
-    text += "Special Thanks to @peaktogoo & His Bot @HarukaAyaBot 🙂\n\n\
-My Souce Available Here [Source](https://github.com/Prakasaka/HarukaAya)\n\n\
-Want to add me to your group? [Click here!](t.me/TheThuggBot?startgroup=true);)"
+    text = "Hello {}, my name is {}!\n\n"
+    "I know what it’s like to lose. To feel so desperately that you’re right, yet to fail nonetheless. Dread it. Run from it.\n"
+    "Destiny still arrives. Or should I say, I have.\n\n"
+    
+    text += "I'm world manager bot maintained by [this awesome person](tg://user?id={})."
+    
+    text += "Click Help button to find out more about how to use me to my full potential.\n\n"
+    
+    text += "Special Thanks to @Prakaska sar ??\n\n\"
+My Souce Available Here [Source](https://github.com/shivamkchoudhary/HarukaAya)\n\n\""
+    
+text += "Want to add me to your group? [Click here!](t.me/ThaNos_TheBot?startgroup=true)"
 
    
     keyboard = [[InlineKeyboardButton(text="🛠 Control panel", callback_data="cntrl_panel_M")]]
