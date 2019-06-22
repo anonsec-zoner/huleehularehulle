@@ -140,7 +140,7 @@ def send_start(bot, update):
     #chat = update.effective_chat  # type: Optional[Chat] and unused variable
     PM_START = """
      Hello {}, my name is {}!\n
-    I know what itβs like to lose. To feel so desperately that youβre right, yet to fail nonetheless. Dread it. Run from it.\n
+    I know what it's like to lose. To feel so desperately that you're right, yet to fail nonetheless. Dread it. Run from it.\n
     Destiny still arrives. Or should I say, I have.\n
     
     I'm world manager bot maintained by [this awesome person](tg://user?id={}).
@@ -154,9 +154,9 @@ Earth. That is my price.!
 """
 
    
-    keyboard = [[InlineKeyboardButton(text="π  Control panel", callback_data="cntrl_panel_M")]]
-    keyboard += [[InlineKeyboardButton(text="πΊπΈ Language", callback_data="set_lang_"), 
-        InlineKeyboardButton(text="β Help", callback_data="help_back")]]
+    keyboard = [[InlineKeyboardButton(text="🛠 Control panel", callback_data="cntrl_panel_M")]]
+    keyboard += [[InlineKeyboardButton(text="🇺🇸 Language", callback_data="set_lang_"), 
+        InlineKeyboardButton(text="❔ Help", callback_data="help_back")]]
 update.effective_message.reply_text(PM_START.format(escape_markdown(first_name), bot.first_name), reply_markup=InlineKeyboardMarkup(keyboard), disable_web_page_preview=True, parse_mode=ParseMode.MARKDOWN)
 
 
