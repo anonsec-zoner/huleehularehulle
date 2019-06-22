@@ -122,7 +122,7 @@ def start(bot: Bot, update: Update, args: List[str]):
         else:
             send_start(bot, update)
     else:
-        update.effective_message.reply_text("The end is near. 👻")
+        update.effective_message.reply_text("The end is near. π»")
 
 
 def send_start(bot, update):
@@ -139,24 +139,24 @@ def send_start(bot, update):
 
     #chat = update.effective_chat  # type: Optional[Chat] and unused variable
     PM_START = """
-     "Hello {}, my name is {}!\n\n"
-    "I know what it’s like to lose. To feel so desperately that you’re right, yet to fail nonetheless. Dread it. Run from it.\n"
-    "Destiny still arrives. Or should I say, I have.\n\n"
+     Hello {}, my name is {}!\n
+    I know what itβs like to lose. To feel so desperately that youβre right, yet to fail nonetheless. Dread it. Run from it.\n
+    Destiny still arrives. Or should I say, I have.\n
     
-    "I'm world manager bot maintained by [this awesome person](tg://user?id={})."
+    I'm world manager bot maintained by [this awesome person](tg://user?id={}).
     
-    "Click Help button to find out more about how to use me to my full potential.\n\n"
-     "Special Thanks to @Prakaska sar ??\n\n\"
-    "My Souce Available Here [Source](https://github.com/shivamkchoudhary/HarukaAya)\n\n\"
+    Click Help button to find out more about how to use me to my full potential.\n\n
+     Special Thanks to @Prakaska sar ??\n
+    My Souce Available Here [Source](https://github.com/shivamkchoudhary/HarukaAya)\n
     
-"Want to add me to your group? [Click here!](t.me/ThaNos_TheBot?startgroup=true)"
+Want to add me to your group? [Click here!](t.me/ThaNos_TheBot?startgroup=true)
 Earth. That is my price.!
 """
 
    
-    keyboard = [[InlineKeyboardButton(text="🛠 Control panel", callback_data="cntrl_panel_M")]]
-    keyboard += [[InlineKeyboardButton(text="🇺🇸 Language", callback_data="set_lang_"), 
-        InlineKeyboardButton(text="❔ Help", callback_data="help_back")]]
+    keyboard = [[InlineKeyboardButton(text="π  Control panel", callback_data="cntrl_panel_M")]]
+    keyboard += [[InlineKeyboardButton(text="πΊπΈ Language", callback_data="set_lang_"), 
+        InlineKeyboardButton(text="β Help", callback_data="help_back")]]
 update.effective_message.reply_text(PM_START.format(escape_markdown(first_name), bot.first_name), reply_markup=InlineKeyboardMarkup(keyboard), disable_web_page_preview=True, parse_mode=ParseMode.MARKDOWN)
 
 
@@ -186,12 +186,12 @@ def control_panel(bot, update):
 
         LOGGER.info(query.data)
     else:
-        M_match = "ThaNos is best bot 🔥" #LMAO, don't uncomment
+        M_match = "ThaNos is best bot π" #LMAO, don't uncomment
 
     if M_match:
-        text = "*Control panel* 🛠"
+        text = "*Control panel* π "
 
-        keyboard = [[InlineKeyboardButton(text="👤 My settings", callback_data="cntrl_panel_U(1)")]]
+        keyboard = [[InlineKeyboardButton(text="π My settings", callback_data="cntrl_panel_U(1)")]]
 
         #Show connected chat and add chat settings button
         conn = connected(bot, update, chat, user.id, need_admin=False)
@@ -204,16 +204,16 @@ def control_panel(bot, update):
             member = chatG.get_member(user.id)
             if member.status in ('administrator', 'creator'):
                 text += f"\nConnected chat - *{chatG.title}* (you {member.status})"
-                keyboard += [[InlineKeyboardButton(text="👥 Group settings", callback_data="cntrl_panel_G_back")]]
+                keyboard += [[InlineKeyboardButton(text="π Group settings", callback_data="cntrl_panel_G_back")]]
             elif user.id in SUDO_USERS:
                 text += f"\nConnected chat - *{chatG.title}* (you sudo)"
-                keyboard += [[InlineKeyboardButton(text="👥 Group settings (SUDO)", callback_data="cntrl_panel_G_back")]]
+                keyboard += [[InlineKeyboardButton(text="π Group settings (SUDO)", callback_data="cntrl_panel_G_back")]]
             else:
                 text += f"\nConnected chat - *{chatG.title}* (you aren't an admin!)"
         else:
             text += "\nNo chat connected!"
 
-        keyboard += [[InlineKeyboardButton(text="⬅️ Back", callback_data="bot_start")]]
+        keyboard += [[InlineKeyboardButton(text="β¬οΈ Back", callback_data="bot_start")]]
 
         update.effective_message.reply_text(text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN)
 
@@ -232,12 +232,12 @@ def control_panel(bot, update):
                 CHAT_SETTINGS[module].__mod_name__) + R[0]
 
             keyboard = R[1]
-            keyboard += [[InlineKeyboardButton(text="⬅️ Back", callback_data="cntrl_panel_U(1)")]]
+            keyboard += [[InlineKeyboardButton(text="β¬οΈ Back", callback_data="cntrl_panel_U(1)")]]
                 
             query.message.reply_text(text=text, arse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup(keyboard))
 
         elif back_match:
-            text = "*User control panel* 🛠"
+            text = "*User control panel* π "
             
             query.message.reply_text(text=text, parse_mode=ParseMode.MARKDOWN,
                     reply_markup=InlineKeyboardMarkup(paginate_modules(user.id, 0, USER_SETTINGS, "cntrl_panel_U")))
