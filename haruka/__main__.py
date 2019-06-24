@@ -30,7 +30,7 @@ I'm world manager bot maintained by [this awesome person](tg://user?id={}).
 
 Click Help button to find out more about how to use me to my full potential.
 
-Special Thanks to @Prakaska sar ??
+Special Thanks to @Prakaska sar
 
 My Souce Available Here [Source](https://github.com/shivamkchoudhary/HarukaAya)
 
