@@ -20,8 +20,8 @@ from haruka.modules.helper_funcs.misc import paginate_modules
 from haruka.modules.translations.strings import tld, tld_help 
 from haruka.modules.connection import connected
 
-PM_START = """
-Hello {}, my name is {}!
+PM_START = 
+"""Hello {}, my name is {}!
  
 I know what it's like to lose. To feel so desperately that you're right, yet to fail nonetheless. Dread it. Run from it.
  
@@ -37,8 +37,8 @@ My Souce Available Here [Source](https://github.com/shivamkchoudhary/HarukaAya)
 
 Want to add me to your group? [Click here!](t.me/ThaNos_TheBot?startgroup=true)
 
-Earth. That is my price.!
-"""
+Earth. That is my price.!"""
+
 IMPORTED = {}
 MIGRATEABLE = []
 HELPABLE = {}
