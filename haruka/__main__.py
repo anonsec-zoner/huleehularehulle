@@ -21,7 +21,7 @@ from haruka.modules.translations.strings import tld, tld_help
 from haruka.modules.connection import connected
 
 PM_START = """
- Hello {}, my name is {}!
+Hello {}, my name is {}!
  
 I know what it's like to lose. To feel so desperately that you're right, yet to fail nonetheless. Dread it. Run from it.
  
