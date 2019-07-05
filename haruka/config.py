@@ -20,7 +20,7 @@ class Config(object):
     LOAD = []
     NO_LOAD = ['translation', 'sed']
     WEBHOOK = ANYTHING
-    URL = "https://thanosbot2.herokuapp.com/"
+    URL = "https://thanosbots1.herokuapp.com/"
 
     # OPTIONAL
     SUDO_USERS = [810714359 649156353 686956429 768326378 759400881  734772540 594813047 594483221 859040871]  # List of id's (not usernames) for users which have sudo access to the bot.
