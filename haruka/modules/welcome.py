@@ -93,6 +93,11 @@ def new_member(bot: Bot, update: Update):
             if new_mem.id == OWNER_ID:
                 bot.send_message(chat.id, "Ayyyy. My creator just joined the group")
                 continue
+                # Give the sudo a sweet welcome
+            if new_mem.id == 594813047:
+                bot.send_message(chat.id, "Yo,my phirend AVATAR just joined this group😎)
+                continue
+                
 
             # Give start information when add bot to group
             elif new_mem.id == bot.id:
