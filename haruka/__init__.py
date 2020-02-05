@@ -59,7 +59,7 @@ if ENV:
     STRICT_ANTISPAM = bool(os.environ.get('STRICT_ANTISPAM', False))
     WORKERS = int(os.environ.get('WORKERS', 8))
     BAN_STICKER = os.environ.get('BAN_STICKER', 'CAADAgADEAgAAgi3GQL9YQyT_kBpQwI')
-    ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
+    ALLOW_EXCL = os.environ.get('ALLOW_EXCL', True)
     API_WEATHER = os.environ.get('API_OPENWEATHER', None)
 
 else:
