@@ -94,8 +94,8 @@ def new_member(bot: Bot, update: Update):
                 bot.send_message(chat.id, "Ayyyy. My creator just joined the group")
                 continue
                 # Give the sudo a sweet welcome
-            if new_mem.id == 594813047:
-                bot.send_message(chat.id, "Yo,my phirend AVATAR just joined this group😎)
+            if new_mem.id == 642191066:
+                bot.send_message(chat.id, "Sir Mayank is just joined this group😎)
                 continue
                 
 
