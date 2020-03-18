@@ -16,3 +16,6 @@ You can also join our support group [here!](https://t.me/HarukaAyaBot)
 * Paul Larsen - marie creator, inspiration to do many things
 * FFBot - for translations functions
 And much more that we couldn't list it here!
+
+
+[Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/noobanon/HarukaAya)
