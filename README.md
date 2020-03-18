@@ -18,4 +18,4 @@ You can also join our support group [here!](https://t.me/HarukaAyaBot)
 And much more that we couldn't list it here!
 
 # Added deploy 
-[[Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/noobanon/HarukaAya)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/noobanon/HarukaAya)
