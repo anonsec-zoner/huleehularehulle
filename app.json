@@ -21,11 +21,11 @@
     },
     "OWNER_ID": {
       "description": "An integer of consisting of your owner ID",
-      "value": "760557538"
+      "value": "631847622"
     },
     "OWNER_USERNAME": {
       "description": "Your username",
-      "value": "Unknown_Hacker_005_X"
+      "value": "noob_boi"
     },
     "WEBHOOK": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode messages",
